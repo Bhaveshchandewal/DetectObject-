@@ -1,16 +1,30 @@
-# detectobject
+# Detect Object
 
-A new Flutter application.
+A Simple Cross Platform Flutter Application for Image classification and Detecting Objects in images using Tensorflow Lite.
+A Flutter plugin for accessing TensorFlow Lite API. Supports image classification, object detection (SSD and YOLO), Pix2Pix and Deeplab and PoseNet on both iOS and Android.
 
-## Getting Started
+## Installation
 
-This project is a starting point for a Flutter application.
+Add tflite as a dependency in your pubspec.yaml file.
 
-A few resources to get you started if this is your first Flutter project:
+### Android
+In ```android/app/build.gradle```, add the following setting in ```android``` block.
+```
+    aaptOptions {
+        noCompress 'tflite'
+        noCompress 'lite'
+    }
+ ```
+### iOS
+Solutions to build errors on iOS:
+- 'vector' file not found"
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Open ```ios/Runner.xcworkspace``` in Xcode, click Runner > Tagets > Runner > Build Settings, search ```Compile Sources As```, change the value to ```Objective-C++```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 'tensorflow/lite/kernels/register.h' file not found
+
+The plugin assumes the tensorflow header files are located in path "tensorflow/lite/kernels".
+
+However, for early versions of tensorflow the header path is "tensorflow/contrib/lite/kernels".
+
+Use ```CONTRIB_PATH``` to toggle the path. Uncomment ```//#define CONTRIB_PATH``` from here:        [https://github.com/shaqian/flutter_tflite/blob/master/ios/Classes/TflitePlugin.mm#L1](https://github.com/shaqian/flutter_tflite/blob/master/ios/Classes/TflitePlugin.mm#L1) 
