@@ -3,8 +3,8 @@
 A Simple Cross Platform Flutter Application for Image classification and Detecting Objects in images using Tensorflow Lite.
 A Flutter plugin for accessing TensorFlow Lite API. Supports image classification, object detection (SSD and YOLO), Pix2Pix and Deeplab and PoseNet on both iOS and Android.
 
-![Sample Image 1](assets/images/horse-human.png){:height="700px" width="400px"}    
-![Sample Image 2](assets/images/pizza.png){:height="700px" width="400px"} 
+![Sample Image 1](assets/images/horse-human.png width="50")   
+![Sample Image 2](assets/images/pizza.png width="50")
 
 
 ## Installation
